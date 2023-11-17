@@ -7,11 +7,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="4css.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .vi {
+            background: black;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            /* opacity: .8; */
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main {
+            height: 100vh;
+            display: grid;
+            /* place-items: center; */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+
+        h1 {
+            transition: 1s;
+            font-size: 200px;
+            background: repeating-linear-gradient(-45deg, red 0%, yellow 7.14%, lime 14.28%, cyan 21.42%, cyan 28.56%, blue 35.7%, magenta 42.84%, red 50%);
+            background-size: 600vw 600vw;
+
+
+
+            -webkit-animation: 'slide' 10s infinite linear forwards;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+
+        @keyframes slide {
+            0% {
+                background-position-x: 0%;
+            }
+
+
+            100% {
+                background-position-x: 600vw;
+            }
+        }
+
+        .a {
+            border: 2px solid red;
+            position: relative;
+            height: 100vh;
+            width: 100%;
+
+
+            /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+        }
+
+        /* .first{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.third {
+    display: flex;
+    position: relative;
+    height: 100vh;
+} */
+        #app {
+            overflow: hidden;
+            touch-action: pan-up;
+            color: #ffffff;
+
+            text-align: center;
+
+        }
+
+        #app h1 {
+            --fontSize: 200px;
+            --lineHeight: 150px;
+            width: auto;
+            height: calc(2 * var(--lineHeight));
+            line-height: var(--lineHeight);
+            margin: calc(50vh - var(--lineHeight)) auto 0;
+            font-size: var(--fontSize);
+            text-transform: uppercase;
+        }
+
+        #app a {
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        #app canvas {
+            display: block;
+            position: fixed;
+            z-index: -1;
+            top: 0;
+        }
+
+
+        .third .content {
+            /* height: 40%; */
+            width: 40%;
+            margin-top: 30%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            /* align-items: center; */
+            font-size: 40px;
+            padding: 3%;
+            gap: 30px;
+            justify-content: center;
+            overflow-y: hidden;
+
+        }
+
+        .third h1 {
+            /* border: solid 2px red; */
+            height: 30%;
+            width: 40%;
+            position: absolute;
+            /* flex: wrap; */
+            left: 5%;
+            top: 15%;
+            z-index: 999;
+            /* animation: h1 1s; */
+        }
+
+        .third .img {
+            position: relative;
+            height: 100%;
+            width: 60%;
+            display: flex;
+            /* flex-direction: column; */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .third .img img {
+            width: 60%;
+            /* height: 525px; */
+            height: 31%;
+            border-radius: 12%;
+        }
+
+        .third .img img.img1 {
+            position: absolute;
+            top: 3%;
+            left: 2%;
+        }
+
+        .third .img img.img3 {
+            position: absolute;
+            bottom: 3%;
+            right: 2%;
+        }
+
+
+
+        /* img {
+    width: 80%;
+    height: 80%;
+
+} */
+    </style>
 </head>
 
 <body translate="no">
-    
+
     </div>
     <div class="main">
         <div id="app">
@@ -21,27 +205,30 @@
         </div>
         <script>
             window.console = window.console || function (t) { };
-            </script>
-            <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
-            <script id="rendered-js" type="module">
-                import { neonCursor } from 'https://unpkg.com/threejs-toys@0.0.8/build/threejs-toys.module.cdn.min.js'
-        
-                neonCursor({
-                    el: document.getElementById('app'),
-                    // shaderPoints: 10,
-                    // curvePoints: 80,
-                    // curveLerp: 0.5,
-                    radius1: 5,
-                    radius2: 30,
-                    velocityTreshold: 10,
-                    sleepRadiusX: 370,
-                    sleepRadiusY: 150,
-                    // sleepTimeCoefX: 0.0025,
-                    // sleepTimeCoefY: 0.0025
-                })
-        
-            </script>
-    
+        </script>
+        <script
+            src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+        <script id="rendered-js" type="module">
+            import { neonCursor } from 'https://unpkg.com/threejs-toys@0.0.8/build/threejs-toys.module.cdn.min.js'
+
+            neonCursor({
+                el: document.getElementById('app'),
+                // shaderPoints: 10,
+                // curvePoints: 80,
+                // curveLerp: 0.5,
+                radius1: 5,
+                radius2: 30,
+                velocityTreshold: 10,
+                sleepRadiusX: 370,
+                sleepRadiusY: 150,
+                // sleepTimeCoefX: 0.0025,
+                // sleepTimeCoefY: 0.0025
+            })
+
+            window.console = window.console || function (t) { };
+        </script>
+
+
 
 </body>
 
